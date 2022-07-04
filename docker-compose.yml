@@ -1,0 +1,48 @@
+version: "3.9"
+services:
+  nginx:
+    container_name: lm-nginx
+    build:
+      context: ./docker/nginx
+    volumes:
+      - ./:/app
+    ports:
+      - "80:80"
+    
+  php:
+    container_name: lm-php
+    build:
+      context: ./docker/php
+    volumes:
+      - ./:/app
+    expose:
+      - 9000
+
+  mysql:
+    container_name: lm-mysql
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      - "MYSQL_ROOT_PASSWORD=_TMP_"
+      - "MYSQL_DATABASE=lm"
+      - "MYSQL_USER=lm"
+      - "MYSQL_PASSWORD=symfony"
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql:/var/lib/mysql
+
+  pma:
+    container_name: lm-pma
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: lm-mysql
+      PMA_USER: lm
+      PMA_PASSWORD: symfony
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
+
+volumes:
+  mysql:
