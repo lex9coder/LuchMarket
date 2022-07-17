@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head itemscope itemtype="http://schema.org/WPHeader">
+    <meta charset="utf-8">
+    <title itemprop="headline">{% block title %}Главная{% endblock %} - ЛучМаркет</title>
+    <meta itemprop="description" name="description" content="">
+    <meta itemprop="keywords" name="keywords" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="imagetoolbar" content="false" />
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    <link rel="icon" type="image/png" href="/assets/images/favicon.ico" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Prata&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/vendor/vendor.css">
+    <link rel="stylesheet" href="/assets/css/plugins/plugins.css">
+    <link rel="stylesheet" href="/assets/css/style.css?{{ 'now'|date('H:i:s') }}">
+    <link rel="stylesheet" href="/assets/css/custom.css?{{ 'now'|date('H:i:s') }}">
+  </head>
+
+    <body>
+      {% include 'include/body_header.html.twig' %}
+      <main>
+        {% block body %}{% endblock %}
+      </main>
+      {% include 'include/body_footer.html.twig' %}
+      <div class="scroll-top not-visible">
+        <i class="fa fa-angle-up"></i>
+      </div>
+    </body>
+
+  <script src="/assets/js/vendor/modernizr-3.6.0.min.js"></script>
+  <script src="/assets/js/vendor/jquery-3.6.0.js"></script>
+  <script src="/assets/js/vendor/popper.min.js"></script>
+  <script src="/assets/js/vendor/bootstrap.min.js"></script>
+  <script src="/assets/js/plugins/slick.min.js"></script>
+  <script src="/assets/js/plugins/countdown.min.js"></script>
+  <script src="/assets/js/plugins/nice-select.min.js"></script>
+  <script src="/assets/js/plugins/jqueryui.min.js"></script>
+  <script src="/assets/js/plugins/image-zoom.min.js"></script>
+  <script src="/assets/js/plugins/imagesloaded.pkgd.min.js"></script>
+  <script src="/assets/js/plugins/instagramfeed.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfmCVTjRI007pC1Yk2o2d_EhgkjTsFVN8"></script>
+  <script src="/assets/js/plugins/google-map.js"></script>
+  <script src="/assets/js/main.js?{{ 'now'|date('H:i:s') }}"></script>
+  <script src="/assets/js/lm.js?{{ 'now'|date('H:i:s') }}"></script>
+</html> 
