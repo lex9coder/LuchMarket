@@ -45,7 +45,21 @@ class RegistrationFormType extends AbstractType
                 'error_bubbling' => true,
                 'invalid_message' => 'Пароли не совпадают',
                 'required' => true,
-                'first_options'  => array('label' => false, 'attr' => ['placeholder' => 'Пароль']),
+                'first_options'  => array(
+                    'label' => false,
+                    'attr' => ['placeholder' => 'Пароль'],
+                    'constraints' => [
+                        new NotBlank([
+                            'message' => 'Введите пароль',
+                        ]),
+                        new Length([
+                            'min' => 8,
+                            'minMessage' => 'Пароль должен быть не менее {{ limit }} символов',
+                            // max length allowed by Symfony for security reasons
+                            'max' => 4096,
+                        ])
+                    ]
+                ),
                 'second_options' => array('label' => false, 'attr' => ['placeholder' => 'Повторите пароль']),
             ))
         ;
